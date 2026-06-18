@@ -14,10 +14,10 @@
 // ============================================================
 
 const firebaseConfig = {
-  apiKey:            "AIzaSyAJ0oDTf_h3eDREOyyIJX7wUG87lFNUG7c",
-  authDomain:        "memorial-178fc.firebaseapp.com",
-  projectId:         "memorial-178fc",
-  storageBucket:     "memorial-178fc.firebasestorage.app",
+  apiKey:            "AIzaSyAJ0oDTf_h3eDREOyyIJX7UG87lFNUG7c",
+  authDomain:        "memorial-17fc.firebaseapp.com",
+  projectId:         "memorial-17fc",
+  storageBucket:     "memorial-17fc.firebasestorage.app",
   messagingSenderId: "641044925594",
-  appId:             "1:641044925594:web:e68f57a403b93c4dd6e323"
+  appId:             "1:641044925594:web:e8f57a403b93c4dd6e323"
 };
