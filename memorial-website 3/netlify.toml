@@ -1,0 +1,5 @@
+[[headers]]
+  for = "/*"
+  [headers.values]
+    Cache-Control = "no-cache, no-store, must-revalidate"
+    Content-Security-Policy = "default-src 'self' 'unsafe-inline' 'unsafe-eval' https://*.googleapis.com https://*.firebaseio.com https://*.firebasedatabase.app https://*.gstatic.com https://fonts.googleapis.com https://fonts.gstatic.com wss://*.firebaseio.com wss://*.firebasedatabase.app; img-src 'self' data: blob: *; connect-src 'self' https://*.firebaseio.com https://*.firebasedatabase.app https://*.googleapis.com wss://*.firebaseio.com wss://*.firebasedatabase.app;"

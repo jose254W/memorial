@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Memorial — In Loving Memory</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --ivory: #FAF7F2;
+      --cream: #F3EDE3;
+      --gold: #B8976A;
+      --gold-light: #E8D9C0;
+      --sage: #7A9E8E;
+      --sage-light: #C8DDD6;
+      --text-dark: #2C2418;
+      --text-mid: #5A4D3A;
+      --text-soft: #9A8C78;
+      --white: #FFFFFF;
+      --shadow: 0 4px 24px rgba(44,36,24,0.09);
+    }
+
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Lato', sans-serif; background: var(--ivory); color: var(--text-dark); overflow-x: hidden; }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; width: 100%; z-index: 100;
+      background: rgba(250,247,242,0.92); backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--gold-light);
+      padding: 0 1.5rem; display: flex; align-items: center; justify-content: space-between; height: 60px;
+    }
+    .nav-brand { font-family: 'Playfair Display', serif; font-size: 1.1rem; color: var(--gold); letter-spacing: 0.05em; }
+    .nav-links { display: flex; gap: 1.5rem; list-style: none; }
+    .nav-links a { text-decoration: none; color: var(--text-mid); font-size: 0.9rem; font-weight: 400; letter-spacing: 0.04em; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--gold); }
+    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 4px; }
+    .hamburger span { width: 22px; height: 2px; background: var(--text-mid); border-radius: 2px; transition: 0.3s; }
+
+    /* ── HERO ── */
+    #hero {
+      min-height: 100svh;
+      background: linear-gradient(160deg, #2C2418 0%, #4A3928 50%, #3D5046 100%);
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      text-align: center; padding: 6rem 2rem 4rem; position: relative; overflow: hidden;
+    }
+    .petals-bg { position: absolute; inset: 0; pointer-events: none; overflow: hidden; }
+    .petal { position: absolute; font-size: 1.2rem; animation: fall linear infinite; opacity: 0.25; }
+
+    @keyframes fall {
+      0%   { transform: translateY(-60px) rotate(0deg); opacity: 0; }
+      10%  { opacity: 0.3; }
+      90%  { opacity: 0.2; }
+      100% { transform: translateY(110vh) rotate(360deg); opacity: 0; }
+    }
+
+    /* ── PORTRAIT ── */
+    .hero-portrait-wrap { margin-bottom: 1.8rem; animation: fadeDown 1s ease both; }
+    .hero-portrait {
+      width: 130px; height: 150px; border-radius: 50%; object-fit: cover;
+      border: 4px solid var(--gold);
+      box-shadow: 0 0 0 6px rgba(184,151,106,0.25), 0 8px 32px rgba(0,0,0,0.4);
+      display: block; background: linear-gradient(135deg, #4A3928, #3D5046);
+    }
+    .photo-placeholder {
+      width: 100%; height: 260px; overflow: hidden;
+      background: linear-gradient(135deg, var(--gold-light) 0%, var(--sage-light) 100%);
+      display: flex; align-items: center; justify-content: center; font-size: 3rem; color: var(--gold);
+    }
+    .photo-placeholder img { 
+      width: 100%; height: 100%; 
+      object-fit: cover; 
+      object-position: center top;
+    }
+
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(184,151,106,0.2); border: 1px solid rgba(184,151,106,0.4);
+      color: var(--gold-light); font-size: 0.78rem; letter-spacing: 0.12em;
+      padding: 6px 16px; border-radius: 40px; margin-bottom: 1.5rem;
+      animation: fadeDown 1s 0.1s ease both;
+    }
+    .hero-name {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.4rem, 8vw, 5rem);
+      color: var(--white); line-height: 1.1; margin-bottom: 0.5rem;
+      animation: fadeDown 1s 0.25s ease both;
+    }
+    .hero-dates {
+      font-size: clamp(1rem, 3vw, 1.3rem);
+      color: var(--gold-light); letter-spacing: 0.15em; margin-bottom: 1.2rem;
+      animation: fadeDown 1s 0.4s ease both;
+    }
+    .hero-tagline {
+      font-family: 'Playfair Display', serif; font-style: italic;
+      font-size: clamp(1rem, 2.5vw, 1.3rem);
+      color: rgba(255,255,255,0.7); margin-bottom: 3rem;
+      animation: fadeDown 1s 0.55s ease both;
+    }
+    .hero-scroll { color: rgba(255,255,255,0.4); font-size: 0.8rem; letter-spacing: 0.1em; animation: bounce 2s ease infinite; }
+    .hero-scroll span { display: block; font-size: 1.3rem; }
+
+    @keyframes fadeDown { from { opacity: 0; transform: translateY(-20px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes bounce   { 0%,100% { transform: translateY(0); } 50% { transform: translateY(8px); } }
+
+    /* ── SECTIONS ── */
+    section { padding: 5rem 1.5rem; max-width: 900px; margin: 0 auto; }
+    .section-label { font-size: 0.75rem; letter-spacing: 0.2em; color: var(--gold); text-transform: uppercase; margin-bottom: 0.6rem; font-weight: 700; }
+    .section-title { font-family: 'Playfair Display', serif; font-size: clamp(1.8rem, 4vw, 2.6rem); color: var(--text-dark); margin-bottom: 2.5rem; line-height: 1.2; }
+    .divider { width: 60px; height: 2px; background: var(--gold); margin: 1rem 0 2.5rem; border-radius: 2px; }
+
+    /* ── TIMELINE ── */
+    .timeline { position: relative; padding-left: 2.5rem; }
+    .timeline::before {
+      content: ''; position: absolute; left: 10px; top: 0; bottom: 0;
+      width: 2px; background: linear-gradient(to bottom, var(--gold), var(--sage)); border-radius: 2px;
+    }
+    .timeline-item { position: relative; margin-bottom: 3rem; }
+    .timeline-item::before {
+      content: ''; position: absolute; left: -2.08rem; top: 6px;
+      width: 14px; height: 14px; border-radius: 50%;
+      background: var(--gold); border: 3px solid var(--ivory); box-shadow: 0 0 0 3px var(--gold-light);
+    }
+    .timeline-year  { font-size: 0.8rem; font-weight: 700; color: var(--gold); letter-spacing: 0.1em; margin-bottom: 0.3rem; }
+    .timeline-title { font-family: 'Playfair Display', serif; font-size: 1.25rem; color: var(--text-dark); margin-bottom: 0.4rem; }
+    .timeline-text  { color: var(--text-mid); font-size: 0.97rem; line-height: 1.75; }
+
+    /* ── GALLERY ── */
+    .photo-grid { 
+      display: columns;
+      column-count: 3;
+      column-gap: 1.2rem;
+    }
+    .photo-card {
+      border-radius: 12px; overflow: hidden; background: var(--white); box-shadow: var(--shadow);
+      transition: transform 0.3s, box-shadow 0.3s; cursor: pointer;
+      break-inside: avoid;
+      margin-bottom: 1.2rem;
+    }
+    .photo-card:hover { transform: translateY(-5px) scale(1.01); box-shadow: 0 12px 36px rgba(44,36,24,0.15); }
+    .photo-placeholder {
+      width: 100%; overflow: hidden;
+      background: linear-gradient(135deg, var(--gold-light) 0%, var(--sage-light) 100%);
+      display: flex; align-items: center; justify-content: center; font-size: 3rem; color: var(--gold);
+    }
+    .photo-placeholder img { width: 100%; height: auto; display: block; }
+    .photo-caption { padding: 0.7rem 1rem; font-size: 0.88rem; color: var(--text-soft); font-style: italic; }
+
+    @media (max-width: 640px) {
+      .photo-grid { column-count: 2; }
+    }
+    /* ── CONDOLENCES ── */
+    .condolences-wall { display: flex; flex-direction: column; gap: 1.2rem; margin-bottom: 3rem; }
+    .condolence-card {
+      background: var(--white); border-radius: 12px; padding: 1.4rem 1.5rem;
+      box-shadow: var(--shadow); border-left: 4px solid var(--sage);
+      animation: cardIn 0.45s ease both;
+    }
+    @keyframes cardIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+    .condolence-name    { font-weight: 700; color: var(--text-dark); margin-bottom: 0.4rem; font-size: 1rem; }
+    .condolence-message { color: var(--text-mid); font-size: 0.95rem; line-height: 1.7; font-style: italic; margin-bottom: 0.6rem; }
+    .condolence-date    { font-size: 0.78rem; color: var(--text-soft); letter-spacing: 0.05em; }
+
+    /* live badge shown when Firebase is connected */
+    .live-badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: 0.75rem; color: var(--sage); font-weight: 700; margin-bottom: 1.2rem;
+    }
+    .live-dot {
+      width: 8px; height: 8px; border-radius: 50%; background: var(--sage);
+      animation: pulse 1.8s ease infinite;
+    }
+    @keyframes pulse { 0%,100%{ opacity:1; transform:scale(1); } 50%{ opacity:0.5; transform:scale(1.3); } }
+
+    /* loading spinner for condolences */
+    .loading-msg { color: var(--text-soft); font-style: italic; font-size: 0.95rem; padding: 1rem 0; }
+
+    /* ── FORM ── */
+    .condolence-form { background: var(--cream); border-radius: 16px; padding: 2rem; }
+    .condolence-form h3 { font-family: 'Playfair Display', serif; font-size: 1.4rem; color: var(--text-dark); margin-bottom: 1.2rem; }
+    .form-group { margin-bottom: 1rem; }
+    label { display: block; font-size: 0.85rem; font-weight: 700; color: var(--text-mid); margin-bottom: 0.4rem; letter-spacing: 0.04em; }
+    input[type="text"], textarea {
+      width: 100%; padding: 0.75rem 1rem; border: 1.5px solid var(--gold-light);
+      border-radius: 8px; font-family: 'Lato', sans-serif; font-size: 0.95rem;
+      background: var(--white); color: var(--text-dark);
+      transition: border-color 0.2s, box-shadow 0.2s; outline: none; resize: vertical;
+    }
+    input[type="text"]:focus, textarea:focus { border-color: var(--gold); box-shadow: 0 0 0 3px rgba(184,151,106,0.15); }
+    textarea { min-height: 100px; }
+    .submit-btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--gold); color: var(--white); border: none; border-radius: 8px;
+      padding: 0.8rem 2rem; font-family: 'Lato', sans-serif; font-size: 1rem; font-weight: 700;
+      cursor: pointer; transition: background 0.2s, transform 0.15s; letter-spacing: 0.04em;
+    }
+    .submit-btn:hover    { background: #a07d52; transform: translateY(-1px); }
+    .submit-btn:active   { transform: scale(0.97); }
+    .submit-btn:disabled { background: #c9b090; cursor: not-allowed; transform: none; }
+    .success-msg { display: none; margin-top: 1rem; color: var(--sage); font-weight: 700; font-size: 0.95rem; }
+
+    /* ── DOWNLOADS ── */
+    #downloads { background: var(--text-dark); max-width: 100%; padding: 5rem 1.5rem; }
+    .downloads-inner { max-width: 900px; margin: 0 auto; }
+    #downloads .section-label { color: var(--gold); }
+    #downloads .section-title { color: var(--white); margin-bottom: 0.5rem; }
+    #downloads .divider { background: var(--gold); }
+    #downloads p { color: rgba(255,255,255,0.55); font-size: 0.95rem; margin-bottom: 2.5rem; line-height: 1.7; }
+    .download-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.2rem; }
+    .download-card {
+      background: rgba(255,255,255,0.06); border: 1px solid rgba(184,151,106,0.3);
+      border-radius: 14px; padding: 1.8rem 1.5rem;
+      display: flex; flex-direction: column; gap: 0.7rem;
+      transition: background 0.2s, border-color 0.2s, transform 0.2s;
+    }
+    .download-card:hover { background: rgba(255,255,255,0.1); border-color: var(--gold); transform: translateY(-3px); }
+    .dl-icon  { font-size: 2rem; }
+    .dl-title { font-family: 'Playfair Display', serif; font-size: 1.2rem; color: var(--white); }
+    .dl-desc  { font-size: 0.85rem; color: rgba(255,255,255,0.5); line-height: 1.6; flex: 1; }
+    .dl-btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--gold); color: var(--white); border: none; border-radius: 8px;
+      padding: 0.65rem 1.3rem; font-family: 'Lato', sans-serif; font-size: 0.88rem; font-weight: 700;
+      cursor: pointer; text-decoration: none; transition: background 0.2s, transform 0.15s;
+      align-self: flex-start; margin-top: 0.5rem;
+    }
+    .dl-btn:hover  { background: #a07d52; transform: translateY(-1px); }
+    .dl-btn:active { transform: scale(0.97); }
+    .dl-note { font-size: 0.78rem; color: rgba(255,255,255,0.3); margin-top: 0.4rem; font-style: italic; }
+
+    /* ── CANDLE ── */
+    .candle-wrap { display: flex; justify-content: center; padding: 2rem 0 0; }
+    .candle { position: relative; width: 20px; }
+    .flame {
+      position: absolute; left: 50%; top: -28px; transform: translateX(-50%);
+      width: 14px; height: 26px;
+      background: radial-gradient(ellipse at 50% 80%, #FFF176 0%, #FFB300 40%, #FF6D00 70%, transparent 100%);
+      border-radius: 50% 50% 40% 40%; animation: flicker 1.5s ease-in-out infinite;
+    }
+    .wick       { width: 2px; height: 8px; background: #4A3928; margin: 0 auto; }
+    .candle-body { width: 20px; height: 60px; background: linear-gradient(to right, #E8D9C0, #F5ECD8, #C8B88A); border-radius: 3px; }
+    @keyframes flicker {
+      0%,100% { transform: translateX(-50%) scaleY(1)    scaleX(1);    opacity: 1;    }
+      25%     { transform: translateX(-48%) scaleY(1.05)  scaleX(0.95); }
+      50%     { transform: translateX(-52%) scaleY(0.95)  scaleX(1.05); opacity: 0.92; }
+      75%     { transform: translateX(-50%) scaleY(1.02); }
+    }
+
+    /* ── LIGHTBOX ── */
+    .lightbox { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.9); z-index: 999; align-items: center; justify-content: center; }
+    .lightbox.active { display: flex; }
+    .lightbox img { max-width: 90vw; max-height: 85vh; border-radius: 8px; object-fit: contain; }
+    .lightbox-close { position: absolute; top: 1rem; right: 1.5rem; color: white; font-size: 2rem; cursor: pointer; background: none; border: none; }
+
+    /* ── CONTRIBUTIONS ── */
+    #contributions { background: var(--cream); max-width: 100%; padding: 5rem 1.5rem; }
+    .contributions-inner { max-width: 900px; margin: 0 auto; }
+    .contrib-intro { color: var(--text-mid); font-size: 1rem; line-height: 1.8; margin-bottom: 2.5rem; max-width: 640px; }
+    .contrib-card {
+      background: var(--white); border-radius: 16px; padding: 2rem 2rem 1.8rem;
+      box-shadow: var(--shadow); border: 1px solid var(--gold-light);
+      display: flex; gap: 1.5rem; align-items: flex-start; max-width: 620px;
+    }
+    .contrib-icon {
+      width: 52px; height: 52px; border-radius: 50%; flex-shrink: 0;
+      background: linear-gradient(135deg, var(--gold-light), var(--sage-light));
+      display: flex; align-items: center; justify-content: center; font-size: 1.5rem;
+    }
+    .contrib-body { flex: 1; }
+    .contrib-title { font-family: 'Playfair Display', serif; font-size: 1.2rem; color: var(--text-dark); margin-bottom: 0.5rem; }
+    .contrib-message { color: var(--text-mid); font-size: 0.95rem; line-height: 1.8; margin-bottom: 1.2rem; }
+    .contrib-contacts { display: flex; flex-direction: column; gap: 0.6rem; }
+    .contrib-contact-item {
+      display: flex; align-items: center; gap: 0.7rem;
+      background: var(--cream); border-radius: 8px; padding: 0.6rem 1rem;
+      font-size: 0.9rem; color: var(--text-dark);
+    }
+    .contrib-contact-item strong { color: var(--gold); min-width: 60px; font-size: 0.8rem; letter-spacing: 0.05em; }
+
+    /* ── FAMILY MESSAGE ── */
+    #family-message { background: var(--ivory); max-width: 100%; padding: 5rem 1.5rem; }
+    .family-message-inner { max-width: 760px; margin: 0 auto; text-align: center; }
+    .family-quote-mark { font-family: 'Playfair Display', serif; font-size: 6rem; line-height: 0.6; color: var(--gold-light); display: block; margin-bottom: 1rem; user-select: none; }
+    .family-quote-text {
+      font-family: 'Playfair Display', serif; font-style: italic;
+      font-size: clamp(1.05rem, 2.5vw, 1.35rem); color: var(--text-mid);
+      line-height: 1.85; margin-bottom: 1.8rem;
+    }
+    .family-signature { display: flex; flex-direction: column; align-items: center; gap: 0.3rem; }
+    .family-sig-line { width: 48px; height: 1px; background: var(--gold); margin-bottom: 0.6rem; }
+    .family-sig-name { font-family: 'Playfair Display', serif; font-size: 1.05rem; color: var(--text-dark); }
+    .family-sig-sub { font-size: 0.82rem; color: var(--text-soft); letter-spacing: 0.08em; }
+    .family-portraits { display: flex; justify-content: center; gap: 0.8rem; margin-top: 1.6rem; flex-wrap: wrap; }
+    .family-portrait-sm {
+      width: 52px; height: 52px; border-radius: 50%; object-fit: cover;
+      border: 2px solid var(--gold-light); background: var(--cream);
+      display: flex; align-items: center; justify-content: center; font-size: 1.4rem;
+      color: var(--text-soft); overflow: hidden;
+    }
+    .family-portrait-sm img { width: 100%; height: 100%; object-fit: cover; }
+
+    /* ── FOOTER ── */
+    footer { text-align: center; padding: 3rem 1.5rem; background: #1a120a; color: rgba(255,255,255,0.4); font-size: 0.85rem; line-height: 2; }
+    footer .footer-name { font-family: 'Playfair Display', serif; font-size: 1.3rem; color: var(--gold-light); display: block; margin-bottom: 0.5rem; }
+
+    /* ── FADE-IN ── */
+    .fade-in { opacity: 0; transform: translateY(18px); transition: opacity 0.6s ease, transform 0.6s ease; }
+    .fade-in.visible { opacity: 1; transform: none; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 640px) {
+      .nav-links { display: none; flex-direction: column; position: fixed; top: 60px; left: 0; right: 0; background: var(--ivory); padding: 1.5rem; gap: 1.2rem; border-bottom: 1px solid var(--gold-light); }
+      .nav-links.open { display: flex; }
+      .hamburger { display: flex; }
+      section { padding: 3.5rem 1.2rem; }
+      #downloads { padding: 3.5rem 1.2rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-brand" id="nav-name">In Loving Memory</div>
+  <ul class="nav-links" id="nav-links">
+    <li><a href="#story">Life Story</a></li>
+    <li><a href="#gallery">Photos</a></li>
+    <li><a href="#condolences">Condolences</a></li>
+    <li><a href="#contributions">Support</a></li>
+    <li><a href="#downloads">Downloads</a></li>
+  </ul>
+  <button class="hamburger" id="hamburger" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="petals-bg" id="petals"></div>
+
+  <div class="hero-portrait-wrap">
+    <div class="portrait-placeholder" id="portrait-placeholder">🕊️</div>
+    <img class="hero-portrait" id="hero-portrait" src="" alt="Portrait photo" style="display:none;" />
+  </div>
+
+  <div class="hero-badge">🕊️ In Loving Memory</div>
+  <h1 class="hero-name" id="hero-name">Loading...</h1>
+  <p class="hero-dates" id="hero-dates">— ✦ —</p>
+  <p class="hero-tagline" id="hero-tagline">Forever in our hearts</p>
+
+  <div class="candle-wrap">
+    <div class="candle">
+      <div class="flame"></div>
+      <div class="wick"></div>
+      <div class="candle-body"></div>
+    </div>
+  </div>
+  <p class="hero-scroll" style="margin-top:2.5rem;">scroll to remember <span>↓</span></p>
+</section>
+
+<!-- LIFE STORY -->
+<section id="story">
+  <p class="section-label">A Life Well Lived</p>
+  <h2 class="section-title">His Story</h2>
+  <div class="divider"></div>
+  <div class="timeline" id="timeline"></div>
+</section>
+
+<!-- GALLERY -->
+<div id="gallery">
+  <div class="gallery-inner">
+    <p class="section-label">Memories</p>
+    <h2 class="section-title">Photo Gallery</h2>
+    <div class="divider"></div>
+    <div class="photo-grid" id="photo-grid"></div>
+  </div>
+</div>
+
+<!-- CONDOLENCES -->
+<section id="condolences">
+  <p class="section-label">Tributes &amp; Messages</p>
+  <h2 class="section-title">Condolences</h2>
+  <div class="divider"></div>
+
+  <div class="live-badge">
+    <div class="live-dot"></div>
+    Messages update live for everyone
+  </div>
+
+  <div class="condolences-wall" id="condolences-wall">
+    <p class="loading-msg">Loading messages...</p>
+  </div>
+
+  <div class="condolence-form">
+    <h3>Leave a Message</h3>
+    <div class="form-group">
+      <label for="cname">Your Name</label>
+      <input type="text" id="cname" placeholder="e.g. Jane Smith" maxlength="80" />
+    </div>
+    <div class="form-group">
+      <label for="cmsg">Your Message</label>
+      <textarea id="cmsg" placeholder="Share a memory, a prayer, or a kind word…" maxlength="600"></textarea>
+    </div>
+    <button class="submit-btn" id="submit-btn">💌 Share your message</button>
+    <p class="success-msg" id="success-msg">✓ Your message has been shared. Thank you.</p>
+  </div>
+</section>
+
+<!-- CONTRIBUTIONS -->
+<div id="contributions">
+  <div class="contributions-inner">
+    <p class="section-label">Support the Family</p>
+    <h2 class="section-title">Contribution Channel</h2>
+    <div class="divider"></div>
+    <p class="contrib-intro" id="contrib-intro">During this difficult time, the family welcomes any support, love, and contributions. If you wish to help in any way, please reach out through the contacts below.</p>
+    <div class="contrib-card fade-in">
+      <div class="contrib-icon">🤝</div>
+      <div class="contrib-body">
+        <div class="contrib-title" id="contrib-title">How to Contribute</div>
+        <p class="contrib-message" id="contrib-message">Your generosity and kindness mean the world to us. Every act of support, however big or small, helps carry us through this season of grief.</p>
+        <div class="contrib-contacts" id="contrib-contacts"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- DOWNLOADS -->
+<div id="downloads">
+  <div class="downloads-inner">
+    <p class="section-label">Documents</p>
+    <h2 class="section-title" style="color:var(--white);">Funeral Program &amp; Eulogy</h2>
+    <div class="divider"></div>
+    <p>Download and keep a copy of the Eulogy as a lasting tribute. These documents can be printed and shared with family and friends.</p>
+      <div class="download-card fade-in">
+        <div class="dl-icon">📖</div>
+        <div class="dl-title">Eulogy</div>
+        <div class="dl-desc">A heartfelt tribute capturing his life, character, and the love he gave to everyone around him.</div>
+        <a class="dl-btn" href="documents/euology.pdf" target="_blank">⬇ Download Eulogy</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- FAMILY APPRECIATION MESSAGE -->
+<div id="family-message">
+  <div class="family-message-inner fade-in">
+    <p class="section-label" style="text-align:center;">From the Family</p>
+    <h2 class="section-title" style="text-align:center; margin-bottom:2rem;" id="family-msg-title">A Word of Gratitude</h2>
+    <span class="family-quote-mark">"</span>
+    <p class="family-quote-text" id="family-quote-text">
+      We are deeply moved by the overwhelming love, prayers, and support we have received from each and every one of you. Your kind words, your presence, and your generosity have been a source of immense comfort to our family during this difficult time. He touched so many lives, and it is a true blessing to see just how many lives he touched in return. We are forever grateful. May God bless you all.
+    </p>
+    <div class="family-signature">
+      <div class="family-sig-line"></div>
+      <div class="family-sig-name" id="family-sig-name">The Family</div>
+      <div class="family-sig-sub" id="family-sig-sub">With love &amp; gratitude</div>
+    </div>
+    <div class="family-portraits" id="family-portraits"></div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <span class="footer-name" id="footer-name">—</span>
+  <span id="footer-dates">—</span><br/>
+  <span style="font-size:0.78rem; margin-top:0.5rem; display:block;">Forever remembered. Forever loved.</span>
+</footer>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox">
+  <button class="lightbox-close" id="lb-close">✕</button>
+  <img id="lb-img" src="" alt="Photo" />
+</div>
+
+<!-- ══════════════════════════════════════════════════════════
+     FIREBASE SDKs  (loaded from CDN — no install needed)
+     ══════════════════════════════════════════════════════════ -->
+<script type="module">
+  import { initializeApp }       from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+  import { getFirestore, collection, addDoc, onSnapshot, orderBy, query, serverTimestamp }
+                                  from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
+  // ── Your Firebase config lives here ──
+  // Open firebase-config.js and replace the dummy values with your real project credentials.
+  const firebaseConfig = {
+  apiKey:            "AIzaSyAJ0oDTf_h3eDREOyyIJX7wUG87lFNUG7c",
+  authDomain:        "memorial-178fc.firebaseapp.com",
+  projectId:         "memorial-178fc",
+  storageBucket:     "memorial-178fc.firebasestorage.app",
+  messagingSenderId: "641044925594",
+  appId:             "1:641044925594:web:e68f57a403b93c4dd6e323"
+};
+  // ─────────────────────────────────────────────────────────
+
+  const app = initializeApp(firebaseConfig);
+  const db  = getFirestore(app);
+  const condolencesRef = query(collection(db, "condolences"), orderBy("timestamp", "asc"));
+
+  // ── Helpers ──────────────────────────────────────────────
+  function formatDate(ts) {
+    if (!ts) return "";
+    const d = ts.toDate ? ts.toDate() : new Date(ts);
+    return d.toLocaleDateString("en-US", { year:"numeric", month:"long", day:"numeric" });
+  }
+
+  function observeAll() {
+    document.querySelectorAll(".fade-in:not(.visible)").forEach(el => io.observe(el));
+  }
+
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add("visible"); io.unobserve(e.target); } });
+  }, { threshold: 0.12 });
+
+  // ── Render condolences wall (called every time Firebase pushes an update) ──
+  function renderCondolences(list) {
+    const wall = document.getElementById("condolences-wall");
+    if (!list.length) {
+      wall.innerHTML = "<p style='color:#9A8C78;font-style:italic;'>Be the first to leave a message of love.</p>";
+      return;
+    }
+    // newest first
+    wall.innerHTML = [...list].reverse().map((c, i) => `
+      <div class="condolence-card" style="animation-delay:${i * 0.06}s">
+        <div class="condolence-name">🤍 ${c.name}</div>
+        <p class="condolence-message">"${c.message}"</p>
+        <div class="condolence-date">${formatDate(c.timestamp)}</div>
+      </div>
+    `).join("");
+  }
+
+  // ── Listen for real-time updates from Firebase ────────────
+  onSnapshot(condolencesRef, snapshot => {
+    const list = snapshot.docs.map(doc => doc.data());
+    renderCondolences(list);
+    observeAll();
+  }, error => {
+    console.error("Firestore read error:", error);
+    document.getElementById("condolences-wall").innerHTML =
+      "<p style='color:#c0705a;'>Could not load messages. Please try again later.</p>";
+  });
+
+  // ── Submit new condolence ─────────────────────────────────
+  document.getElementById("submit-btn").addEventListener("click", async () => {
+    const nameEl = document.getElementById("cname");
+    const msgEl  = document.getElementById("cmsg");
+    const btn    = document.getElementById("submit-btn");
+    const name    = nameEl.value.trim();
+    const message = msgEl.value.trim();
+    if (!name || !message) { alert("Please enter your name and a message."); return; }
+
+    btn.disabled = true;
+    btn.textContent = "Sending…";
+    try {
+     await addDoc(collection(db, "condolences"), {
+        name,
+        message,
+        timestamp: serverTimestamp()
+      });
+      nameEl.value = "";
+      msgEl.value  = "";
+      const ok = document.getElementById("success-msg");
+      ok.style.display = "block";
+      setTimeout(() => ok.style.display = "none", 4000);
+      document.getElementById("condolences-wall").scrollIntoView({ behavior: "smooth" });
+    } catch (err) {
+      alert("Could not save your message. Please check the Firebase configuration.");
+      console.error(err);
+    } finally {
+      btn.disabled = false;
+      btn.innerHTML = "💌 Share your message";
+    }
+  });
+
+  // ── Load page content from data.json ─────────────────────
+  async function loadPageData() {
+    try {
+      const res  = await fetch("data.json");
+      return await res.json();
+    } catch {
+      return null;
+    }
+  }
+
+  function renderPage(data) {
+    if (!data) return;
+    const p = data.person;
+    document.title = `In Loving Memory — ${p.name}`;
+    document.getElementById("nav-name").textContent     = p.name;
+    document.getElementById("hero-name").textContent    = p.name;
+    document.getElementById("hero-dates").textContent   = `${p.born} — ${p.passed}`;
+    document.getElementById("hero-tagline").textContent = p.tagline || "Forever in our hearts";
+    document.getElementById("footer-name").textContent  = p.name;
+    document.getElementById("footer-dates").textContent = `${p.born} – ${p.passed}`;
+
+    // Portrait
+    if (p.profilePhoto) {
+      const img = document.getElementById("hero-portrait");
+      const ph  = document.getElementById("portrait-placeholder");
+      img.src = p.profilePhoto;
+      img.style.display = "block";
+      ph.style.display  = "none";
+      img.onerror = () => { img.style.display = "none"; ph.style.display = "flex"; };
+    }
+
+    // Timeline
+    document.getElementById("timeline").innerHTML = (data.lifeStory || []).map((item, i) => `
+      <div class="timeline-item fade-in" style="transition-delay:${i * 0.1}s">
+        <div class="timeline-title">${item.title}</div>
+        <p class="timeline-text">${item.text}</p>
+      </div>
+    `).join("");
+
+    // Photos
+    const photos = data.photos || [];
+    document.getElementById("photo-grid").innerHTML = photos.map((ph, i) => `
+      <div class="photo-card fade-in" style="transition-delay:${i * 0.1}s" onclick="openLightbox(${i})">
+        <div class="photo-placeholder">
+          ${ph.url ? `<img src="${ph.url}" alt="${ph.caption}" onerror="this.parentElement.innerHTML='🌸'" />` : "🌸"}
+        </div>
+        <div class="photo-caption">${ph.caption}</div>
+      </div>
+    `).join("");
+
+    window._photos = photos;
+
+    // Contributions
+    const contrib = data.contributions || {};
+    if (contrib.intro)   document.getElementById("contrib-intro").textContent   = contrib.intro;
+    if (contrib.title)   document.getElementById("contrib-title").textContent   = contrib.title;
+    if (contrib.message) document.getElementById("contrib-message").textContent = contrib.message;
+    const contacts = contrib.contacts || [];
+    document.getElementById("contrib-contacts").innerHTML = contacts.map(c => `
+      <div class="contrib-contact-item">
+        <strong>${c.label}</strong>
+        <span>${c.value}</span>
+      </div>
+    `).join("");
+
+    // Family appreciation message
+    const fam = data.familyMessage || {};
+    if (fam.title)     document.getElementById("family-msg-title").textContent  = fam.title;
+    if (fam.message)   document.getElementById("family-quote-text").textContent = fam.message;
+    if (fam.signedBy)  document.getElementById("family-sig-name").textContent   = fam.signedBy;
+    if (fam.subtitle)  document.getElementById("family-sig-sub").textContent    = fam.subtitle;
+
+    // Optional small family portrait bubbles
+    const famPhotos = fam.photos || [];
+    document.getElementById("family-portraits").innerHTML = famPhotos.map(fp => `
+      <div class="family-portrait-sm">
+        ${fp.url ? `<img src="${fp.url}" alt="${fp.name || ''}" onerror="this.parentElement.textContent='🤍'" />` : "🤍"}
+      </div>
+    `).join("");
+
+    observeAll();
+  }
+
+  loadPageData().then(renderPage);
+
+  // ── Petals ────────────────────────────────────────────────
+  (function createPetals() {
+    const container = document.getElementById("petals");
+    const chars = ["✿","❀","✾","❁","🌸"];
+    for (let i = 0; i < 18; i++) {
+      const el = document.createElement("span");
+      el.className = "petal";
+      el.textContent = chars[Math.floor(Math.random() * chars.length)];
+      el.style.left              = Math.random() * 100 + "vw";
+      el.style.animationDuration = (10 + Math.random() * 14) + "s";
+      el.style.animationDelay    = (Math.random() * 12) + "s";
+      el.style.fontSize          = (0.9 + Math.random() * 0.8) + "rem";
+      container.appendChild(el);
+    }
+  })();
+
+  // ── Hamburger ─────────────────────────────────────────────
+  document.getElementById("hamburger").addEventListener("click", () =>
+    document.getElementById("nav-links").classList.toggle("open"));
+  document.querySelectorAll(".nav-links a").forEach(a =>
+    a.addEventListener("click", () => document.getElementById("nav-links").classList.remove("open")));
+</script>
+
+<!-- Lightbox (kept as regular script so onclick attr on photo cards can call it) -->
+<script>
+  function openLightbox(i) {
+    const ph = (window._photos || [])[i];
+    if (!ph || !ph.url) return;
+    document.getElementById("lb-img").src = ph.url;
+    document.getElementById("lightbox").classList.add("active");
+  }
+  document.getElementById("lb-close").onclick = () =>
+    document.getElementById("lightbox").classList.remove("active");
+  document.getElementById("lightbox").onclick = e => {
+    if (e.target === e.currentTarget) e.currentTarget.classList.remove("active");
+  };
+</script>
+
+</body>
+</html>

@@ -1,0 +1,74 @@
+{
+  "person": {
+    "name": "Erastus Ruiru Muiyuro",
+    "born": "February 13, 1990",
+    "passed": "May 31, 2026",
+    "tagline": "Forever In Our Hearts",
+    "profilePhoto": "photos/portrait.jpg"
+  },
+  "lifeStory": [
+    {
+      "title": "Primary School",
+      "text": "He joined Ahadi Nursury School, He then joined Kandie primary school from class one to class five, then finished primary education in st mathew's primary school in 2001."
+    },
+    {
+      "title": "Secondary Education",
+      "text": "He joined Kapsabet High School where he completed his secondary education passing with flying colors in 2005."
+    },
+    {
+      "title": "University Life",
+      "text": "He joined Kenyatta University where he pursued a degree in Bcomm."
+    },
+    {
+      "title": "NYS",
+      "text": "He joined the national youth service in 2012 where he learned his work ethic and discipline in life."
+    },
+    {
+      "title": "Work and Life",
+      "text": "He joined Jomo Kenyatta international airport where he worked for 3 years. He lived a life full of love,laughter and joy. He was a loving son, brother, uncle and friend. He will be dearly missed by all who knew him."
+    }
+  ],
+  "photos": [
+    { "url": "photos/bro.jpg", "caption": "A day to remember" },
+    { "url": "photos/bro and sister.jpg", "caption": "A day to remember" },
+    { "url": "photos/brother.jpg", "caption": "A day to remember" },
+    { "url": "photos/fam.jpg", "caption": "A day to remember" },
+    { "url": "photos/family.jpg", "caption": "A day to remember" },
+    { "url": "photos/fun.jpg", "caption": "A day to remember" },
+    { "url": "photos/highschool.jpg", "caption": "A day to remember" },
+    { "url": "photos/jkia.jpg", "caption": "A day to remember" },
+    { "url": "photos/me.jpg", "caption": "A day to remember" },
+    { "url": "photos/portrait.jpg", "caption": "A day to remember" },
+    { "url": "photos/selfie.jpg", "caption": "A day to remember" },
+    { "url": "photos/smile.jpg", "caption": "A day to remember" },
+    { "url": "photos/teen.jpg", "caption": "A day to remember" },
+    { "url": "photos/work.jpg", "caption": "A day to remember" },
+    { "url": "photos/laugh.jpg", "caption": "A day to remember" },
+    { "url": "photos/mom and dad.jpg", "caption": "A day to remember" }
+
+
+  ],
+  "contributions": {
+    "intro": "During this difficult time, the family welcomes any support, love, and contributions. If you wish to help in any way, please reach out through the contacts below.",
+    "title": "How to Contribute",
+    "message": "Your generosity and kindness mean the world to us. Every act of support, however big or small, helps carry us through this season of grief. Please don't hesitate to get in touch.",
+    "contacts": [
+      { "label": "Phone", "value": "+254 711 254 450" },
+      { "label": "Contact", "value": "Erastus Njeri — Treasurer" }
+    ]
+  },
+  "familyMessage": {
+    "title": "A Word of Gratitude",
+    "message": "We are deeply moved by the overwhelming love, prayers, and support we have received from each and every one of you. Your kind words, your presence, and your generosity have been a source of immense comfort to our family during this difficult time. He touched so many lives, and it is a true blessing to see just how many hearts he reached. We are forever grateful. May God bless you all abundantly.",
+    "signedBy": "The Family",
+    "subtitle": "With love & gratitude",
+    "photos": []
+  },
+  "condolences": [
+    {
+      "name": "Family",
+      "message": "You are dearly missed. Your light continues to shine in our lives every single day. Rest in peace, beloved.",
+      "date": "2026-06-17T10:00:00Z"
+    }
+  ]
+}
